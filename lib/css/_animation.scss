@@ -1,0 +1,80 @@
+/* ==========================================================================
+   spinner
+   ========================================================================== */
+.spinner{
+	animation:  spinner 700ms infinite linear ;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+  	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* ==========================================================================
+   flying
+   ========================================================================== */
+.flying{
+	animation:  flying 8s infinite ;
+}
+
+@keyframes flying {
+	0%, 100% {
+		transform: translateY(0);
+  	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+/* ==========================================================================
+   bounce
+   ========================================================================== */
+.bounce{
+	animation:  bounce 2s infinite ;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-15px);
+	}
+	60% {
+		transform: translateY(-8px);
+	}
+}
+
+/* ==========================================================================
+   candyEffect
+   ========================================================================== */
+.candyEffect{
+	animation:  candyEffect 2s infinite ;
+}
+
+@keyframes candyEffect {
+	0% {
+		transform: scale(1,1);
+	}
+	20% {
+		transform: scale(1.2,0.8);
+	}
+	40% {
+		transform: scale(0.8,1.2);
+	}
+	60% {
+		transform: scale(1,1);
+	}
+	80% {
+		transform: scale(0.9,1.1);
+	}
+	100% {
+		transform: scale(1,1);
+	}
+}

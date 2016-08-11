@@ -1,0 +1,120 @@
+/* ==========================================================================
+   mfp animation
+   ========================================================================== */
+/* overlay at start */
+.mfp-fade.mfp-bg {
+	opacity: 0;
+	transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform:  translateY(50px);
+	transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform:  translateY(0) ;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+	transform:  translateY(-50px);
+}
+
+/* ==========================================================================
+   POPUP
+   ========================================================================== */
+.popup{
+	position: relative;
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 20px;
+
+	.popupContent{
+		background-color: #fff;
+		padding: 20px;
+		margin: 0 auto;
+	}
+	.mfp-close{
+		top: 30px;
+		right: 30px;
+		width: 30px;
+		height: 30px;
+		transition: all 0.4s;
+
+		&:hover {
+			scale: 0.8;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 30px;
+			height: 2px;
+			left: 0;
+			top: 50%;
+			background: color(black,1);
+		}
+
+		&:before {
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+/* ==========================================================================
+   ALERT
+   ========================================================================== */
+.alertPopup{
+	text-align: center;
+
+	.popupContent{
+		padding: 100px 20px;
+	}
+}
+
+/* ==========================================================================
+   VIDEO
+   ========================================================================== */
+.videoPopup{
+	.responsive1280 &,
+	.responsive760 &{
+		max-width: 1000px;
+	}
+
+	.videoWrapper {
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+
+		iframe,
+		object,
+		embed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+}

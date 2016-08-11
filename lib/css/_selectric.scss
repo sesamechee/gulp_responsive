@@ -1,0 +1,84 @@
+$selectric-main-color: color(black,2) !default; // Color used in border
+$selectric-hover-color: color(black,1) !default; // Color used in border
+$selectric-secondary-color: color(black,2) !default; // Color used in button
+$selectric-text-color: color(black,2) !default; // Color used in label
+$selectric-bg-color: #fff !default; // Background color
+$selectric-height: $input-height !default; // Outer height
+$selectric-spacing: 10px !default; // Label left padding
+$selectric-border-width: 1px !default; // Outer border width
+$selectric-inner-height: $selectric-height - ($selectric-border-width * 2) !default; // Inner height
+
+select{
+	-webkit-appearance:none;
+	background: inline-image("common/selectArrowM2x.png") no-repeat;
+	background-size: 30px auto;
+	background-position: 100% 50%;
+}
+
+.selectric {
+	border: $selectric-border-width solid $selectric-main-color;
+	background: $selectric-bg-color;
+	.label {
+		.desktop &,
+		.tablet &{
+			font-size: $font-size-desktop-body;
+		}
+		.mobile &{
+			font-size: $font-size-mobile-body;
+		}
+	}
+	.button {
+		width: $selectric-inner-height;
+		height: $selectric-inner-height;
+		color: $selectric-secondary-color;
+		&:after {
+			border-top-color: $selectric-secondary-color;
+		}
+	}
+}
+
+.selectric-hover .selectric {
+	border-color: $selectric-hover-color;
+	.button {
+		color: $selectric-hover-color;
+		&:after {
+			border-top-color: $selectric-hover-color;
+		}
+	}
+}
+
+.selectric-open {
+	.selectric {
+		border-color: darken($selectric-main-color, 10%);
+	}
+}
+
+/* Items box */
+
+.selectric-items {
+	background: $selectric-bg-color;
+	border: 1px solid darken($selectric-main-color, 10%);
+	ul,
+	li {
+		.desktop &,
+		.tablet &{
+			font-size: $font-size-desktop-body;
+		}
+		.mobile &{
+			font-size: $font-size-mobile-body;
+		}
+	}
+	li {
+		border-top: 1px solid #FFF;
+		border-bottom: 1px solid #EEE;
+		color: #666;
+		&.selected {
+			background: #EFEFEF;
+			color: #444;
+		}
+		&:hover {
+			background: #F0F0F0;
+			color: #444;
+		}
+	}
+}
