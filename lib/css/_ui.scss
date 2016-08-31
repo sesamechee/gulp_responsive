@@ -214,6 +214,7 @@ pre{
 	top: 0;
 	transform: scale(0);
 	transition: 0.2s all;
+	background-color: #fff;
 
 	.loading &{
 		transform: scale(1);

@@ -834,7 +834,8 @@ pre {
       -ms-transform: scale(0);
           transform: scale(0);
   -webkit-transition: 0.2s all;
-  transition: 0.2s all; }
+  transition: 0.2s all;
+  background-color: #fff; }
   .loading .loader {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
@@ -1654,19 +1655,19 @@ input[type="radio"]:checked + .radiobox:before {
 
 .btnBackTop {
   position: absolute;
-  top: -60px;
+  top: -50px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   padding: 10px;
-  font-size: 30px;
   text-decoration: none;
   overflow: hidden; }
   .btnBackTop .icon {
     position: relative;
     width: 100%;
     height: 100%;
-    font-size: 30px;
+    font-size: 20px;
+    line-height: 20px;
     color: #fff;
     -webkit-transform: scale(0) translateY(20px);
         -ms-transform: scale(0) translateY(20px);

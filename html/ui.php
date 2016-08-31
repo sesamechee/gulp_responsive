@@ -12,9 +12,9 @@
 	<title>Site Title</title>
 </head>
 
-<body ontouchstart="" class="loading">
+<body ontouchstart="" class="loading moving">
 
-	<div class="wrapper" id="wrapper">
+	<div class="wrapper">
 
 		<div class="main">
 			<?php include "include/header.php" ?>

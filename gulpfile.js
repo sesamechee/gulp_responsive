@@ -17,10 +17,7 @@ var del = require('del');
 var paths = {
 	images: './lib/images/**/*',
 	css: './lib/css/**/*',
-	scripts:{
-		dependencies: './lib/js/dependencies/**/*',
-		independencies: './lib/js/independencies/**/*'
-	},
+	scripts: './lib/js/**/*',
 	icons: './lib/icons/*.svg'
 };
 
@@ -29,16 +26,11 @@ gulp.task('clean', function () {
 });
 
 gulp.task('scripts', function () {
-	gulp.src(paths.scripts.dependencies)
+	gulp.src(paths.scripts)
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(jshint.reporter('fail'))
 		.pipe(concat('script.js'))
-		.pipe(gulp.dest('js/'));
-	gulp.src(paths.scripts.independencies)
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(jshint.reporter('fail'))
 		.pipe(gulp.dest('js/'));
 });
 
@@ -101,7 +93,7 @@ gulp.task('bower', function() {
 });
 
 gulp.task('watch', function () {
-	gulp.watch([paths.scripts.dependencies , paths.scripts.independencies], ['scripts']);
+	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
 });
