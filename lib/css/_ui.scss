@@ -197,9 +197,12 @@ pre{
 }
 
 .innerContent{
+	.desktop &{
+		padding-top: 150px;
+	}
 	.mobile &,
 	.tablet &{
-		//padding-top: 45px;
+		padding-top: 60px;
 	}
 }
 

@@ -12,7 +12,6 @@
     "jquery-selectric": "^1.9.6",
     "jquery.inview": "1.1.2",
     "slick-carousel": "^1.6.0",
-    "jquery_lazyload": "jquery.lazyload#^1.9.7",
-    "jquery-pjax": "^1.9.6"
+    "jquery_lazyload": "jquery.lazyload#^1.9.7"
   }
 }

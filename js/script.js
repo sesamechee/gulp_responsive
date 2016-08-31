@@ -9,28 +9,6 @@ function common_init(){
 	detectBroswer();
 	menuControl();
 
-	$('body').on('click', 'a.pjax', function(e) {
-		showLoading();
-		setTimeout(function(){
-			$.pjax({
-				url: $(this).attr('href'),
-				container: '.wrapper'
-			});
-		},1000);
-		return false;
-	});
-
-	$(document).on({
-		"pjax:start": function () {
-			showLoading();
-		},
-		"pjax:render": function () {
-		},
-		"pjax:complete": function(){
-			hideLoading();
-		}
-	});
-
 	$(window).load(function(){
 		hideLoading();
 	});
@@ -334,11 +312,11 @@ responsive.prototype.addEvent = function () {
 };
 responsive.prototype.checkSize = function () {
 	var _self = this;
-
 	var _layout = 0;
+	var _windowWidth = window.innerWidth || $(window).width();
 
 	for (var i = 0; i < _self.layoutSize.length; i++) {
-		if (_self.layoutSize[i] > _self.window.width()) {
+		if (_self.layoutSize[i] > _windowWidth ) {
 			break;
 		} else {
 			_layout = i;
