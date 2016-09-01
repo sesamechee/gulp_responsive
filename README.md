@@ -13,31 +13,33 @@ Step 1: Clone this template set to your project folder
 
 Step 2: Download Node.js in [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
-Step 3: Open CMD Window
+Step 3: Download Git in [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
-Step 4: Install gulp globally -- [http://gulpjs.com/](http://gulpjs.com/)
+Step 4: Open CMD Window
+
+Step 5: Install gulp globally -- [http://gulpjs.com/](http://gulpjs.com/)
 ```
 npm install -g gulp-cli
 ```
-Step 5. Install bower globally -- [https://bower.io/](https://bower.io/)
+Step 6. Install bower globally -- [https://bower.io/](https://bower.io/)
 ```
 npm install -g bower
 ```
-Step 6. Go to your project folder path
+Step 7. Go to your project folder path
 ```
 cd C:\project\client\project-name
 ```
-Step 7. Run below command in every new project. It will generate assigned plugin component to "node_modules" and "bower_components" folder.
+Step 8. Run below command in every new project. It will generate assigned plugin component to "node_modules" and "bower_components" folder.
 **_BUT DO NOT COMMIT ON SVN DUE TO THE LARGE AMOUNT OF FOLDERS_**
 ```
 npm install
 bower install
 ```
-Step 8. Run gulp to watch folder.
+Step 9. Run gulp to watch folder.
 ```
 gulp
 ```
-Step 9. DONE!!! When you want to exit the gulp just press Ctrl + C
+Step 10. DONE!!! When you want to exit the gulp just press Ctrl + C
 
 ## Edit JS plugin
 Add Plugin
