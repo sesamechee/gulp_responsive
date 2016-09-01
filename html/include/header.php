@@ -8,7 +8,7 @@
 <div class="headerWrapper">
 	<div class="header">
 		<div class="inner">
-			<a href="./index.php" class="logo pjax">
+			<a href="./index.php" class="logo" data-type="page-transition">
 				Logo
 			</a>
 			<a href="#" class="menuBtn">
@@ -21,7 +21,7 @@
 	<div class="menuList">
 		<div class="inner">
 			<div class="menuItem">
-				<a class="pjax" href="./ui.php">UI</a>
+				<a class="pjax" href="./ui.php" data-type="page-transition">UI</a>
 			</div>
 			<div class="menuItem">
 				<a class="pjax" href="#">2</a>
