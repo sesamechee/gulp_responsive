@@ -49,6 +49,11 @@ Remove Plugin
 bower uninstall --save [yourPluginName]
 ```
 
+## Minify All css and script
+```
+gulp minify
+```
+
 ## Bower plugin List
 - jquery": "^1.10.2
 - jquery.easing": "^1.3.1
