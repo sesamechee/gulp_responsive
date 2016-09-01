@@ -1,5 +1,5 @@
-# Grunt Responsive Template
-DEMO HERE: [https://sesamechee.github.io/grunt_responsive](https://sesamechee.github.io/grunt_responsive)
+# Gulp Responsive Template
+DEMO HERE: [https://sesamechee.github.io/gulp_responsive](https://sesamechee.github.io/gulp_responsive)
 
 ## Features
 - 3 Layout responsive ( desktop , tablet , mobile )
@@ -33,11 +33,11 @@ Step 7. Run below command in every new project. It will generate assigned plugin
 npm install
 bower install
 ```
-Step 8. Run grunt to watch folder. It will success with open new window with localhost testing server
+Step 8. Run gulp to watch folder.
 ```
 gulp
 ```
-Step 9. YEAH~
+Step 9. DONE!!! When you want to exit the gulp just press Ctrl + C
 
 ## Edit JS plugin
 Add Plugin
