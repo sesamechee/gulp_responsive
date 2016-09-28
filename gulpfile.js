@@ -13,13 +13,22 @@ var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
 var cleanCSS = require('gulp-clean-css');
 var del = require('del');
+var browserSync = require('browser-sync').create();
 
 var paths = {
+	host: {
+		proxy: 'http://template/',
+		host: 'template'
+	},
 	images: './lib/images/**/*',
 	css: './lib/css/**/*',
 	scripts: './lib/js/**/*',
 	icons: './lib/icons/*.svg'
 };
+
+gulp.task('browser-sync', function() {
+	browserSync.init( paths.host );
+});
 
 gulp.task('clean', function () {
 	return del(['temp']);
@@ -31,7 +40,8 @@ gulp.task('scripts', function () {
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(jshint.reporter('fail'))
 		.pipe(concat('script.js'))
-		.pipe(gulp.dest('js/'));
+		.pipe(gulp.dest('js/'))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('scripts:minify', function () {
@@ -45,7 +55,8 @@ gulp.task('images', ['clean'], function () {
 		.pipe(imagemin({
 			optimizationLevel: 5
 		}))
-		.pipe(gulp.dest('images'));
+		.pipe(gulp.dest('images'))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('Iconfont', function(){
@@ -60,7 +71,8 @@ gulp.task('Iconfont', function(){
 		fontName: 'Icons',
 		formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'] // default, 'woff2' and 'svg' are available
 	}))
-	.pipe(gulp.dest('fonts/'));
+	.pipe(gulp.dest('fonts/'))
+	.pipe(browserSync.stream());
 });
 
 
@@ -73,7 +85,8 @@ gulp.task('css', function () {
     return gulp.src(paths.css)
 		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(processors))
-		.pipe(gulp.dest('css'));
+		.pipe(gulp.dest('css'))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('css:minify', function () {
@@ -96,7 +109,9 @@ gulp.task('watch', function () {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
+	gulp.watch(paths.icons, ['Iconfont']);
+	browserSync.init( paths.host );
 });
 
-gulp.task('default', ['clean', 'watch', 'bower', 'scripts', 'Iconfont', 'css', 'images']);
+gulp.task('default', ['clean', 'browser-sync', 'watch', 'bower', 'scripts', 'Iconfont', 'css', 'images']);
 gulp.task('minify', ['scripts:minify', 'css:minify']);
