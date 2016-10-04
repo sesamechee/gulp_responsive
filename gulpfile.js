@@ -38,7 +38,6 @@ gulp.task('scripts', function () {
 	gulp.src(paths.scripts)
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(jshint.reporter('fail'))
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/'))
 		.pipe(browserSync.stream());
