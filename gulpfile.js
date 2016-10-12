@@ -16,19 +16,15 @@ var del = require('del');
 var browserSync = require('browser-sync').create();
 
 var paths = {
-	host: {
-		proxy: 'http://template/',
-		host: 'template'
+	browserSyncOption: {
+		proxy: 'http://template.gulp_responsive/',
+		open: "external"
 	},
 	images: './lib/images/**/*',
 	css: './lib/css/**/*',
 	scripts: './lib/js/**/*',
 	icons: './lib/icons/*.svg'
 };
-
-gulp.task('browser-sync', function() {
-	browserSync.init( paths.host );
-});
 
 gulp.task('clean', function () {
 	return del(['temp']);
@@ -109,8 +105,8 @@ gulp.task('watch', function () {
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
 	gulp.watch(paths.icons, ['Iconfont']);
-	browserSync.init( paths.host );
+	browserSync.init( paths.browserSyncOption );
 });
 
-gulp.task('default', ['clean', 'browser-sync', 'watch', 'bower', 'scripts', 'Iconfont', 'css', 'images']);
+gulp.task('default', ['clean', 'bower', 'scripts', 'Iconfont', 'css', 'images', 'watch']);
 gulp.task('minify', ['scripts:minify', 'css:minify']);
