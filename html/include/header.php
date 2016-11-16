@@ -21,16 +21,16 @@
 	<div class="menuList">
 		<div class="inner">
 			<div class="menuItem">
-				<a class="pjax" href="./ui.php" data-type="page-transition">UI</a>
+				<a href="./ui.php" data-type="page-transition">UI</a>
 			</div>
 			<div class="menuItem">
-				<a class="pjax" href="#">2</a>
+				<a href="#">2</a>
 			</div>
 			<div class="menuItem">
-				<a class="pjax" href="#">3</a>
+				<a href="#">3</a>
 			</div>
 			<div class="menuItem">
-				<a class="pjax" href="#">4</a>
+				<a href="#">4</a>
 			</div>
 		</div>
 	</div>
