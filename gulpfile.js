@@ -64,6 +64,11 @@ gulp.task('Iconfont', function(){
 	}))
 	.pipe(iconfont({
 		fontName: 'Icons',
+		appendCodepoints: true,
+		appendUnicode: false,
+		normalize: true,
+		fontHeight: 1000,
+		centerHorizontally: true,
 		formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'] // default, 'woff2' and 'svg' are available
 	}))
 	.pipe(gulp.dest('fonts/'))
