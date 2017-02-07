@@ -23,18 +23,19 @@ var paths = {
 	images: './lib/images/**/*',
 	css: './lib/css/**/*',
 	scripts: './lib/js/**/*',
-	icons: './lib/icons/*.svg'
+	icons: './lib/icons/*.svg',
+	html: ['./html/**/*', './include/**/*']
 };
 
 gulp.task('clean', function () {
-	return del(['temp']);
+	return del(['js', 'css']);
 });
 
 gulp.task('scripts', function () {
 	gulp.src(paths.scripts)
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(concat('script.js'))
+		//.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/'))
 		.pipe(browserSync.stream());
 });
@@ -105,11 +106,17 @@ gulp.task('bower', function() {
         .pipe(gulp.dest('js/'));
 });
 
+gulp.task('html', function () {
+	return gulp.src(paths.html)
+		.pipe(browserSync.stream());
+});
+
 gulp.task('watch', function () {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
 	gulp.watch(paths.icons, ['Iconfont']);
+	gulp.watch(paths.html, ['html']);
 	browserSync.init( paths.browserSyncOption );
 });
 
