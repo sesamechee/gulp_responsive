@@ -22,6 +22,10 @@
 			<div class="content">
 
 				<div class="innerContent">
+					
+					<div class="box" style="width:100px; height:100px; background:#f00;"></div>
+					
+					<img width="300" src="http://www.planwallpaper.com/static/images/autumn-wallpaper-hd.jpg" alt="">
 
 					<?php include "include/footer.php" ?>
 					<?php include "include/popup.php" ?>
@@ -38,13 +42,16 @@
 	<?php include "../include/common/include_js.php" ?>
 
 	<script type="text/javascript">
-		$(document).ready(init_fn);
-
-		function init_fn() {
-
-			common_init();
-
-		}
+		require(['../js/home'], function(home){
+			home.init();
+		});
+//		$(document).ready(init_fn);
+//
+//		function init_fn() {
+//
+//			common_init();
+//
+//		}
 	</script>
 </body>
 

@@ -15,6 +15,6 @@
 </script>
 
 <!--STYLE-->
-<link rel="stylesheet" href="../css/vender.css" type="text/css" />
+<link rel="stylesheet" href="../css/lib/vender.css" type="text/css" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" />
 <link rel="stylesheet" href="../css/icons.css" type="text/css" />

@@ -1,19 +1,20 @@
 'use strict';
 
-var gulp = require('gulp');
-var mainBowerFiles = require('main-bower-files');
-var postcss = require('gulp-postcss');
-var sass = require('gulp-sass');
-var autoprefixer = require('autoprefixer');
-var jshint = require('gulp-jshint');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var imagemin = require('gulp-imagemin');
-var iconfont = require('gulp-iconfont');
-var iconfontCss = require('gulp-iconfont-css');
-var cleanCSS = require('gulp-clean-css');
-var del = require('del');
-var browserSync = require('browser-sync').create();
+var gulp 			= require('gulp');
+var reqOptimize		= require('gulp-requirejs-optimize');
+var mainBowerFiles 	= require('main-bower-files');
+var postcss 		= require('gulp-postcss');
+var sass 			= require('gulp-sass');
+var autoprefixer 	= require('autoprefixer');
+var jshint 			= require('gulp-jshint');
+var concat 			= require('gulp-concat');
+var uglify 			= require('gulp-uglify');
+var imagemin 		= require('gulp-imagemin');
+var iconfont 		= require('gulp-iconfont');
+var iconfontCss 	= require('gulp-iconfont-css');
+var cleanCSS 		= require('gulp-clean-css');
+var del 			= require('del');
+var browserSync 	= require('browser-sync').create();
 
 var paths = {
 	browserSyncOption: {
@@ -26,17 +27,29 @@ var paths = {
 	icons: './lib/icons/*.svg'
 };
 
+gulp.task('requirejs', function () {
+	return gulp.src(['./js/common.js', '!js/main.js'])
+        .pipe(reqOptimize({
+//			mainConfigFile: './js/main.js',
+            optimize: "none"
+        }))
+//		.pipe(uglify())
+		.pipe(concat("main.min.js"))
+        .pipe(gulp.dest('./js'))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('clean', function () {
 	return del(['temp']);
 });
 
 gulp.task('scripts', function () {
-	gulp.src(paths.scripts)
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(concat('script.js'))
-		.pipe(gulp.dest('js/'))
-		.pipe(browserSync.stream());
+//	gulp.src(paths.scripts)
+//		.pipe(jshint())
+//		.pipe(jshint.reporter('jshint-stylish'))
+//		.pipe(concat('script.js'))
+//		.pipe(gulp.dest('js/'))
+//		.pipe(browserSync.stream());
 });
 
 gulp.task('scripts:minify', function () {
@@ -98,14 +111,15 @@ gulp.task('css:minify', function () {
 gulp.task('bower', function() {
     gulp.src(mainBowerFiles('**/*.css'))
 		.pipe (concat ("vender.css"))
-        .pipe(gulp.dest('css/'));
+        .pipe(gulp.dest('css/lib/'));
 	gulp.src(mainBowerFiles('**/*.js'))
-		.pipe (concat ("vender.js"))
-		.pipe(uglify())
-        .pipe(gulp.dest('js/'));
+//		.pipe (concat ("vender.js"))
+//		.pipe(uglify())
+        .pipe(gulp.dest('js/lib/'));
 });
 
 gulp.task('watch', function () {
+	gulp.watch('./js/*.js', ['requirejs']);
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
@@ -113,5 +127,5 @@ gulp.task('watch', function () {
 	browserSync.init( paths.browserSyncOption );
 });
 
-gulp.task('default', ['clean', 'bower', 'scripts', 'Iconfont', 'css', 'images', 'watch']);
+gulp.task('default', ['clean', 'bower', 'requirejs', 'scripts', 'Iconfont', 'css', 'images', 'watch']);
 gulp.task('minify', ['scripts:minify', 'css:minify']);
