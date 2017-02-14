@@ -42,7 +42,7 @@
 	<?php include "../include/common/include_js.php" ?>
 
 	<script type="text/javascript">
-		require(['../js/home'], function(home){
+		require(['home'], function(home){
 			home.init();
 		});
 //		$(document).ready(init_fn);

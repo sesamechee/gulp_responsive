@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "requirejs": "latest",
+    "requirejs-domready": "latest",
+    "requirejs-plugins": "^1.0.3",
     "jScrollPane": "^2.0.23",
     "jquery": "^1.10.2",
 	"jquery-migrate": "^1.4.0",
