@@ -28,15 +28,16 @@ var paths = {
 };
 
 gulp.task('requirejs', function () {
-	return gulp.src(['./js/common.js', '!js/main.js'])
+	return gulp.src(['./js/*.js'])
+//	return gulp.src(['./js/common.js', '!js/main.js'])
         .pipe(reqOptimize({
 //			mainConfigFile: './js/main.js',
             optimize: "none"
         }))
 //		.pipe(uglify())
-		.pipe(concat("main.min.js"))
-        .pipe(gulp.dest('./js'))
-        .pipe(browserSync.stream());
+//		.pipe(concat("main.min.js"))
+//        .pipe(gulp.dest('./js'))
+//        .pipe(browserSync.stream());
 });
 
 gulp.task('clean', function () {
@@ -119,7 +120,7 @@ gulp.task('bower', function() {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('./js/*.js', ['requirejs']);
+//	gulp.watch('./js/*.js', ['requirejs']);
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);

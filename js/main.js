@@ -1,5 +1,6 @@
 requirejs.config({
 	baseUrl: "../js",
+	waitSeconds: 200,
 	paths: {
 		jquery: 		"lib/jquery",
 		jqMigrate: 		"lib/jquery-migrate",

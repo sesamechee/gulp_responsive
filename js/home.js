@@ -1,7 +1,7 @@
 // global var
 var data = 'aaa';
 
-define(["main.min", "test"], function(main, test){
+define(["test"], function(test){
 	return {
 		init: function(){
 			require(["magnificPopup"], function(magnificPopup){
