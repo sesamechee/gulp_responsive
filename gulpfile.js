@@ -18,11 +18,12 @@ var browserSync = require('browser-sync').create();
 var paths = {
 	browserSyncOption: {
 		proxy: 'http://template.gulp_responsive/',
-		open: "external"
+		open: "external",
+		ghostMode: false
 	},
 	images: './lib/images/**/*',
 	css: './lib/css/**/*',
-	scripts: './lib/js/**/*',
+	scripts: './js/**/*',
 	icons: './lib/icons/*.svg',
 	html: ['./html/**/*', './include/**/*']
 };
@@ -33,17 +34,7 @@ gulp.task('clean', function () {
 
 gulp.task('scripts', function () {
 	gulp.src(paths.scripts)
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		//.pipe(concat('script.js'))
-		.pipe(gulp.dest('js/'))
 		.pipe(browserSync.stream());
-});
-
-gulp.task('scripts:minify', function () {
-	return gulp.src(['js/**/*'])
-		.pipe(uglify())
-		.pipe(gulp.dest('js/'));
 });
 
 gulp.task('images', ['clean'], function () {
@@ -112,13 +103,13 @@ gulp.task('html', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.css, ['css']);
 	gulp.watch(paths.icons, ['Iconfont']);
 	gulp.watch(paths.html, ['html']);
+	gulp.watch(paths.scripts, ['scripts']);
 	browserSync.init( paths.browserSyncOption );
 });
 
-gulp.task('default', ['clean', 'bower', 'scripts', 'Iconfont', 'css', 'images', 'watch']);
-gulp.task('minify', ['scripts:minify', 'css:minify']);
+gulp.task('init', ['bower', 'scripts', 'Iconfont', 'css', 'images']);
+gulp.task('default', ['watch']);
+gulp.task('minify', ['css:minify']);

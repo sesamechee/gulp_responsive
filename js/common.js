@@ -3,15 +3,16 @@ var IpadFlag = false;
 var MobileFlag = false;
 var gEasing = "easeInOutQuint";
 
+$(window).on('load', function(){
+	hideLoading();
+});
+
 function common_init(){
 
 	new responsive();
 	detectBroswer();
 	menuControl();
 
-	$(window).load(function(){
-		hideLoading();
-	});
 
 	$(window).on('resize', function(){
 		resize();
@@ -27,26 +28,6 @@ function common_init(){
 
 	//form
 	$('select').selectric();
-	$('.inputBox').each(function(){
-		inputBox = new InputHints();
-		inputBox.init( $(this) );
-	});
-
-	//Inview
-	$('body').on('inview', '.inview', function(event, isInView) {
-		if (isInView) {
-			$(this).addClass('play');
-		} else {
-			//$(this).removeClass('play');
-		}
-	});
-
-	//Lazyload
-	$("img.lazy").lazyload({
-		effect: "fadeIn",
-		effectTime: 2000,
-		threshold: 0
-	});
 
 	//Page transition
 	$('body').on('click', '[data-type="page-transition"]', function(e) {
@@ -285,73 +266,5 @@ responsive.prototype.changeClass = function (className) {
 		_self.body.addClass(className);
 		layout = className;
 		$(document).trigger('responsive', className);
-	}
-};
-
-
-
-
-
-/******************************** INPUT HINTS *******************************/
-
-/**
-*
-* Copyright 2012, Pixopunch
-* http://www.pixopunch.com/
-*
-* {Class}
-* InputHints
-* -destroy():void
-* -init(pTarget, pParam_obj):void
-*
-* {Events}
-*
-*/
-
-InputHints.prototype.mInputHints = null;
-
-function InputHints()
-{
-}
-
-InputHints.prototype.destroy = function()
-{
-	this.mInputHints.children(".hints").unbind("click");
-	this.mInputHints.children("input, textarea").unbind("focus");
-	this.mInputHints.children("input, textarea").unbind("blur");
-
-	this.mInputHints = null;
-};
-
-InputHints.prototype.init = function(pTarget, pParam_obj)
-{
-	var _self = this;
-
-	this.mInputHints = pTarget;
-
-	this.mInputHints.children(".hints").bind("click", function(){_self.doFocusBegin();});
-	this.mInputHints.children("input, textarea").bind("focus", function(){_self.focusBegin();});
-	this.mInputHints.children("input, textarea").bind("blur", function(){_self.focusEnd();});
-
-	this.mInputHints.children(".hints").css("display", "none");
-	this.focusEnd();
-};
-
-InputHints.prototype.doFocusBegin = function()
-{
-	this.mInputHints.children("input, textarea").focus();
-	this.focusBegin(this.mInputHints.children("input, textarea"));
-};
-
-InputHints.prototype.focusBegin = function()
-{
-	this.mInputHints.children(".hints").css("display", "none");
-};
-
-InputHints.prototype.focusEnd = function()
-{
-	if (this.mInputHints.children("input, textarea").val() === "")
-	{
-		this.mInputHints.children(".hints").css("display", "block");
 	}
 };
