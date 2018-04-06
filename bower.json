@@ -7,10 +7,10 @@
     "jquery-migrate": "3.0.0",
     "jquery-selectric": "^1.9.6",
     "magnific-popup": "^1.1.0",
-    "modernizr": "^2.6.2",
     "slick-carousel": "^1.6.0",
     "slick-animation": "^0.3.3",
     "in-view": "*",
-    "jquery.stellar": "^0.6.2"
+    "jquery.stellar": "^0.6.2",
+    "vanilla-lazyload": "^10.5.2"
   }
 }

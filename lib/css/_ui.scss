@@ -460,6 +460,34 @@ a {
 }
 
 /* ==========================================================================
+   LAZY LOAD
+	 ========================================================================== */
+.lazy{
+	position: relative;
+	display: inline-block;
+	min-width: 200px;
+	min-height: 200px;
+	background-color: #eee;
+	background-image: url('../images/common/loading.gif');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+
+	img{
+		transition: all .5s;
+		opacity: 0;
+
+		&[data-src],
+		&[data-srcset] {
+			display: block;
+			min-height: 1px;
+		}
+		&.loaded{
+			opacity: 1;
+		}
+	}
+}
+	 
+/* ==========================================================================
    SEP
    ========================================================================== */
 .sep{

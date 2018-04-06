@@ -37,7 +37,7 @@ gulp.task('scripts', function () {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('images', ['clean'], function () {
+gulp.task('images', function () {
 	return gulp.src(paths.images)
 		.pipe(imagemin({
 			optimizationLevel: 5

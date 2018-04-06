@@ -57,35 +57,34 @@ gulp minify
 ```
 
 ## Bower plugin List
-- jquery": "^1.10.2
-- jquery.easing": "^1.3.1
-- jquery-mousewheel": "^3.1.13
-- modernizr": "^2.6.2
-- magnific-popup": "^1.1.0
-- jScrollPane": "^2.0.23
-- jquery-selectric": "^1.9.6
-- jquery.inview": "1.1.2
-- slick-carousel": "^1.6.0
-- jquery_lazyload": "jquery.lazyload#^1.9.7
+-	jquery: ^3.1.1
+-	jquery-migrate: 3.0.0
+-	jquery-selectric: ^1.9.6
+-	magnific-popup: ^1.1.0
+-	slick-carousel: ^1.6.0
+-	slick-animation: ^0.3.3
+-	in-view: *
+-	jquery.stellar: ^0.6.2
+-	vanilla-lazyload: ^10.5.2
 
 ## NPM plugin List
-- autoprefixer": "^6.4.0
-- bower": "^1.7.9
-- del": "^2.2.1
-- gulp": "^3.9.1
-- gulp-autoprefixer": "^3.1.0
-- gulp-clean-css": "^2.0.12
-- gulp-concat": "^2.6.0
-- gulp-iconfont": "^8.0.1
-- gulp-iconfont-css": "^2.1.0
-- gulp-imagemin": "^3.0.2
-- gulp-jshint": "^2.0.1
-- gulp-postcss": "^6.1.1
-- gulp-sass": "^2.3.2
-- gulp-uglify": "^2.0.0
-- jshint": "^2.9.2
-- jshint-stylish": "^2.2.0
-- main-bower-files": "^2.13.1
+- autoprefixer: ^6.4.0
+- bower: ^1.7.9
+- del: ^2.2.1
+- gulp: ^3.9.1
+- gulp-autoprefixer: ^3.1.0
+- gulp-clean-css: ^2.0.12
+- gulp-concat: ^2.6.0
+- gulp-iconfont: ^8.0.1
+- gulp-iconfont-css: ^2.1.0
+- gulp-imagemin: ^3.0.2
+- gulp-jshint: ^2.0.1
+- gulp-postcss: ^6.1.1
+- gulp-sass: ^2.3.2
+- gulp-uglify: ^2.0.0
+- jshint: ^2.9.2
+- jshint-stylish: ^2.2.0
+- main-bower-files: ^2.13.1
 
 ## Common Commard
 ### Popup Magnific popup box

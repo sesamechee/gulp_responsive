@@ -1,7 +1,6 @@
 var IE9down = false;
 var IpadFlag = false;
 var MobileFlag = false;
-var gEasing = "easeInOutQuint";
 
 $(window).on('load', function(){
 	hideLoading();
@@ -38,6 +37,9 @@ function common_init(){
 			window.location = _this.href;
 		}, 1200);
 	});
+
+	//Lazy load
+	var myLazyLoad = new LazyLoad();
 
 }
 
@@ -152,8 +154,8 @@ function scroll(){
 function scrollto( target ){
 	var _target = ( target === undefined )? 'body' : target ;
 	$('html, body').animate({
-		scrollTop: $(_target).offset().top
-	},800 , gEasing);
+		scrollTop: $(_target).offset().top - $('.headerWrapper').outerHeight() - $('.header').outerHeight()
+	}, 500);
 }
 
 function popupBox( target , config ) {

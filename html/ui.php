@@ -882,7 +882,18 @@
 
 					<div class="section">
 						<div class="inner">
-							<img class="lazy" data-original="https://unsplash.it/200/300/?random"><img class="lazy" data-original="https://unsplash.it/300/?random"><img class="lazy" data-original="https://unsplash.it/400/300/?random"><img class="lazy" data-original="https://unsplash.it/500/300/?random">
+							<div class="lazy">
+								<img data-src="https://unsplash.it/200/300/?random" alt="lazyIMG">
+							</div>
+							<div class="lazy">
+								<img data-src="https://unsplash.it/300/?random" alt="lazyIMG">
+							</div>
+							<div class="lazy">
+								<img data-src="https://unsplash.it/200/300/?random" alt="lazyIMG">
+							</div>
+							<div class="lazy">
+								<img data-src="https://unsplash.it/500/300/?random" alt="lazyIMG">
+							</div>
 						</div>
 					</div>
 
