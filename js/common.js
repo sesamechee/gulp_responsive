@@ -29,6 +29,7 @@ function common_init(){
 	$('select').selectric();
 
 	//Page transition
+	/*
 	$('body').on('click', '[data-type="page-transition"]', function(e) {
 		var _this = this;
 		e.preventDefault();
@@ -37,9 +38,10 @@ function common_init(){
 			window.location = _this.href;
 		}, 1200);
 	});
+	*/
 
 	//Lazy load
-	var myLazyLoad = new LazyLoad();
+	//var myLazyLoad = new LazyLoad();
 
 }
 
